@@ -11,12 +11,12 @@ export class AppController {
   }
 
   @Get('/order/:id')
-  getById(@Param('id') id: number) {
+  getOrderById(@Param('id') id: number) {
     return this.appService.getOrderById(id);
   }
 
   @Post('/order')
-  create(@Body() createOrderDto) {
+  createOrder(@Body() createOrderDto) {
     return this.appService.createOrder(createOrderDto);
   }
 
@@ -28,5 +28,25 @@ export class AppController {
   @Delete('/order/:id')
   removeOrder(@Param('id') id: number) {
     return this.appService.removeOrder(id);
+  }
+
+  @Get('/user/:id')
+  getUserById(@Param('id') id: number) {
+    return this.appService.getUserById(id);
+  }
+
+  @Post('/user')
+  createUser(@Body() createUserDto) {
+    return this.appService.createUser(createUserDto);
+  }
+
+  @Put('/user/:id')
+  updateUser(@Param('id') id: number, @Body() userDto) {
+    return this.appService.updateUser(id, userDto);
+  }
+
+  @Delete('/user/:id')
+  removeUser(@Param('id') id: number) {
+    return this.appService.removeUser(id);
   }
 }

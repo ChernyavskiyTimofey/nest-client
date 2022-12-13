@@ -26,4 +26,20 @@ export class AppService {
   removeOrder(id: number) {
     return this.client.send({ role: 'order', cmd: 'remove'}, id);
   }
+
+  createUser(createUserDto) {
+    return this.client.send({ role: 'user', cmd: 'create'}, createUserDto);
+  }
+
+  getUserById(id: number) {
+    return this.client.send({ role: 'user', cmd: 'get-by-id'}, id);
+  }
+
+  updateUser(id: number, createUserDto) {
+    return this.client.send({ role: 'user', cmd: 'update'}, { id, dto: createUserDto});
+  }
+
+  removeUser(id: number) {
+    return this.client.send({ role: 'user', cmd: 'remove'}, id);
+  }
 }
